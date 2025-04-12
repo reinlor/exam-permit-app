@@ -19,7 +19,7 @@ function About() {
                     <Profile
                         profile={dionneProfile}
                         name="De Pedro, Dionne"
-                        role="Project Manager"
+                        role="UI/UX Designer"
                     />
                     <Profile
                         profile={rehneilProfile}

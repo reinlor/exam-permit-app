@@ -17,6 +17,7 @@ function Balance({
     discountPercent = 0,
     paymentDate = '01 Jan, 2010',
     paymentID = '0000000' }) {
+
     const newDiscount = (discount) => {
         // di ko alam kung tama calculation ko 🤓
         return tuitionFee - (tuitionFee * (discount / 100))
@@ -41,7 +42,6 @@ function Balance({
     }
     return (
         <>
-
             <Navigation />
             <div className={styles.balanceContainer}>
                 <div className={styles.balanceHeader}>
@@ -52,22 +52,38 @@ function Balance({
                     <div className={styles.balanceContent}>
                         <table>
                             <tbody>
-                                <tr>
+                                <tr className={styles.headerTXT}>
                                     <td>Charges for {schoolYear} {schoolTerm} Term Tertiary</td>
                                 </tr>
                                 <tr>
+                                    <td className={styles.separator} colSpan={3}></td>
+                                </tr>
+                                <tr className={styles.tuitionFeeContainer}>
                                     <td>Tuition fee</td>
                                     <td>Php {tuitionFee}</td>
                                 </tr>
-                                <tr>
-                                    <td>Other school fee</td>
+
+                                <tr className={styles.tuitionFeeContainer}>
+
+                                    <td colSpan={2}>Other school fee<br />
+                                        <span className={styles.otherFeeTXT}>(Registration Fee, Other School Fees)</span>
+                                    </td>
+
                                     <td>Php {otherFee}</td>
                                 </tr>
-                                <tr>
-                                    <td>Miscellaneous fee</td>
-                                    <td>Php {miscFee}</td>
+                                <tr className={styles.tuitionFeeContainer}>
+
+                                    <td colSpan={2}>Miscellaneous Fees<br />
+                                        <span className={styles.otherFeeTXT}>
+                                            (Student Related Activities, Organization/SC Fee,<br />
+                                            Student Learning Materials, Connectivity Fee,<br />
+                                            Network Events Fee, E-LMS)</span>
+                                    </td>
+
+                                    <td className={styles.amountPHP}>Php {miscFee}</td>
                                 </tr>
-                                <tr>
+
+                                <tr className={styles.tuitionFeeContainer2}>
                                     <td>Tuition fee</td>
                                     <td>Php {tuitionFee}</td>
                                 </tr>
@@ -78,39 +94,56 @@ function Balance({
                     <div className={styles.paymentContent}>
                         <table>
                             <tbody>
-                                <tr>
+                                <tr className={styles.headerTXT}>
                                     <td>Payments and Adjustments for {schoolYear} {schoolTerm} Tertiary</td>
                                 </tr>
-                                {discount()}
                                 <tr>
+                                    <td className={styles.separator} colSpan={3}></td>
+                                </tr>
+
+                                {discount()}
+
+                                <tr className={styles.tuitionFeeContainer3}>
                                     <td>{paymentDate} | OR # {paymentID}</td>
                                 </tr>
-                                <tr>
+                                <tr className={styles.otherFee2TXT}>
                                     <td>Miscellaneous Fees</td>
                                     <td>Php {miscFee}</td>
                                 </tr>
                                 <tr>
+                                    <td className={styles.separator2} colSpan={3}></td>
+                                </tr>
+                                <tr className={styles.otherFee2TXT}>
                                     <td>Other School Fees</td>
                                     <td>Php {otherFee}</td>
                                 </tr>
                                 <tr>
+                                    <td className={styles.separator2} colSpan={3}></td>
+                                </tr>
+                                <tr className={styles.otherFee2TXT}>
                                     <td>Tuition Fees</td>
                                     <td>Php {tuitionFee}</td>
                                 </tr>
                                 <tr>
-                                    <td>Total Fees</td>
+                                    <td className={styles.separator2} colSpan={3}></td>
+                                </tr>
+
+                                <tr className={styles.totalFeeTXT}>
+                                    <td>Total</td>
                                     <td>Php {totalBalance}</td>
                                 </tr>
-                                <tr>
+
+                                <tr className={styles.tuitionFeeContainer4}>
+                                    <td>Tuition fee</td>
+                                    <td>Php {tuitionFee}</td>
+                                </tr>
+
+                                <tr className={styles.tuitionFeeContainer5}>
                                     <td>Assessment Balance</td>
                                     <td>Php {assessmentBalance}</td>
                                 </tr>
                             </tbody>
                         </table>
-                        <h3></h3>
-
-                        <div className={styles.paymentTag}>13 Jan, 2025 | OR # President's Honors TF</div>
-
                     </div>
                 </div>
             </div>
