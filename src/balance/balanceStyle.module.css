@@ -1,0 +1,56 @@
+.balanceContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.balanceHeader{
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.balanceData{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.balanceContent{
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    background-color: white;
+    padding: 10px;
+    width: 50%;
+}
+
+.balanceBlock{
+    display: grid;
+    grid-template-columns: 0.5fr 0.1fr;
+    column-gap: 200px;
+    background-color: #f0f0f0;
+    align-items: end;
+    margin: 10px;
+    padding: 10px;
+}
+
+.titleTags{
+    font-weight: bold;
+    color: black;
+}
+
+.paymentContent{
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    background-color: white;
+    padding: 10px;
+    width: 50%;
+}
