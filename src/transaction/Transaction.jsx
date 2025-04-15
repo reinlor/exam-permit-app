@@ -1,32 +1,37 @@
+import React,{useState, createContext} from "react";
 import Navigation from "../components/navbar/Navigation";
-import styles from "./transactionStyle.module.css";
+import TransactionContent from "./TransactionContent";
+
+export const TransactionContext = createContext()
 
 function Transaction() {
-    const tableContent = []
+    const [transactionData, setTransactionData] = useState([{
+        
+            transactionNumber: 1001,
+            transactionDate: '01/01/20',
+            payment: '92999.99',
+            paymentMode: 'GCash',
+            paymentPeriod: '1st Term',
+            referenceNumber: '42432'
+    }]);
+
+        
+
+    const renderContent = () => {
+        if(transactionData.length <= 0){
+            return // No transactions have been recorded yet 🙂
+        }
+        else{
+            return <TransactionContext.Provider value={transactionData}>
+                <TransactionContent/>
+            </TransactionContext.Provider>
+            
+    }}
 
     return (
         <>
             <Navigation />
-            <div className={styles.transactionContainer}>
-                <div>
-                    <h1>Transaction History</h1>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Transaction Number</th>
-                            <th>Date</th>
-                            <th>Payment</th>
-                            <th>Payment Mode</th>
-                            <th>Payment Period</th>
-                            <th>Reference Number</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                    </tbody>
-                </table>
-            </div>
+                {renderContent()}
         </>
     );
 }

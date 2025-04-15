@@ -8,7 +8,6 @@ import Transaction from './transaction/Transaction.jsx';
 import Validation from './validation/Validation.jsx';
 
 function App() {
-  
   return (
     <Router>
       <Routes>
