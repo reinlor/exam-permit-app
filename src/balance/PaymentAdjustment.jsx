@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import styles from "./balanceStyle.module.css";
 
 import { balanceContext } from "./Balance";
@@ -14,22 +14,25 @@ function PaymentAdjustment() {
     function discount() {
         if (balance.hasDiscount) {
             return <>
-                <tr>
+                <tr className={styles.tuitionFeeContainer3}>
                     <td>{balance.discountDate} | {balance.discountName}</td>
                 </tr>
-                <tr>
+                <tr className={styles.otherFee2TXT} >
                     <td>Tuition Fee</td>
-                    <td>{newDiscount(balance.discountPercent)}</td>
+                    <td>{newDiscount(balance.discountPercent)} Php</td>
                 </tr>
                 <tr>
+                    <td className={styles.separator2} colSpan={3}></td>
+                </tr>
+                <tr className={styles.otherFee2TXT}>
                     <td>Total</td>
-                    <td>{newDiscount(balance.discountPercent)}</td>
+                    <td>{newDiscount(balance.discountPercent)} Php</td>
                 </tr>
             </>
         }
         <></>
     }
-    
+
     return (
         <>
             <table>

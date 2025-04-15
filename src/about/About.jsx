@@ -38,7 +38,7 @@ function About() {
                     />
                 </div>
                 <p><b>
-                    This website is developed to improve the...</b>
+                    This website is developed to improve the transaction process of the....</b>
                 </p><br />
                 <p>Powered By &copy; 2025, STI College Dasmarinas</p>
             </div>
