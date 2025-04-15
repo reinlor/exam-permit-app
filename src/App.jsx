@@ -6,6 +6,7 @@ import Balance from './balance/Balance.jsx';
 import Permit from './permit/Permit.jsx';
 import Transaction from './transaction/Transaction.jsx';
 import Validation from './validation/Validation.jsx';
+import Profile from './profile/Profile.jsx';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/permit" element={<Permit />} />
         <Route path="/transaction" element={<Transaction />} />
         <Route path="/validation" element={<Validation />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );

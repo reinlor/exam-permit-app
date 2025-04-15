@@ -16,6 +16,7 @@ function Navigation(){
                 <li><Link to="/permit">Permit</Link></li>
                 <li><Link to="/transaction">Transaction</Link></li>
                 <li><Link to="/validation">Validation</Link></li>
+                <li><Link to="/profile">Profile</Link></li>
             </ul>
 
             <div className={styles.navRight}>

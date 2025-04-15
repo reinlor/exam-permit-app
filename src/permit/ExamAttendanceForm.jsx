@@ -15,9 +15,9 @@ function ExamAttendanceForm() {
                     <h3>Tertiary / Senior High School</h3>
                     <br />
 
-                    <p>Name:&nbsp; {permit.name}</p>
-                    <p>Student No:&nbsp; {permit.sid}</p>
-                    <p>Program:&nbsp; {permit.program}</p>
+                    <p>NAME:&nbsp; {permit.name}</p>
+                    <p>STUDENT NO:&nbsp; {permit.sid}</p>
+                    <p>PROGRAM:&nbsp; {permit.program}</p>
                 </div>
                 <div>
                     <h1>STI COLLEGE DASMARINAS INC.</h1>
