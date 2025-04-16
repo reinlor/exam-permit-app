@@ -42,7 +42,8 @@
 }
 
 .iconProfile {
-    height: 24px;
+    border-radius: 50%;
+    height: 40px;
     cursor: pointer;
     transition: opacity 0.3s ease;
 }
