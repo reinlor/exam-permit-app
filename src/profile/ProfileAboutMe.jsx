@@ -1,22 +1,48 @@
-import React,{useState} from "react"
+import React, { useEffect, useState } from "react"
+import axios from "axios";
 
-function ProfileAboutMe(){
+function ProfileAboutMe() {
     const [aboutMe, setAboutMe] = useState('');
 
-    function handleAboutMeChange(event){
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/api/users/02000288488`);
+                const { aboutMe } = response.data;
+                setAboutMe(aboutMe);
+            } catch (error) {
+                console.log("Error while fetching data", error);
+            }
+        }
+        fetchData();
+    },[])
+
+    function handleAboutMeChange(event) {
         setAboutMe(event.target.value)
     }
-    function clearAboutMeChange(){
+    function clearAboutMeChange() {
         setAboutMe('')
     }
-    function saveAboutMeChange(){
-        // express and mongodb BS to input data to the Dbs
+
+    const updateAboutMe = async () => {
+        try {
+            const updatedAboutMe = {
+                aboutMe: aboutMe
+            };
+            await axios.put(`http://localhost:8000/api/update/users/02000288488`,
+                updatedAboutMe
+            );
+            alert("Profile updated successfully!")
+        } catch (error) {
+            console.log("Error while updating profile", error);
+        }
     }
-    return(
+
+    return (
         <div>
             <textarea value={aboutMe} onChange={handleAboutMeChange} />
             <button onClick={clearAboutMeChange}>Clear</button>
-            <button>Save</button>
+            <button onClick={updateAboutMe}>Save</button>
         </div>
     )
 }

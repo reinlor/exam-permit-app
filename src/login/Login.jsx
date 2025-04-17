@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './loginStyle.module.css';
 
@@ -7,35 +7,25 @@ function Login() {
     const navigate = useNavigate();
     const [sid, setSid] = useState('');
     const [pass, setPass] = useState('');
+    const [message, setMessage] = useState('');
+
+        const handleLogin = async()=>{
+            try {
+                const response = await axios.get(`http://localhost:8000/api/users?sid=${sid}&pass=${pass}`,{
+                    sid,
+                    pass,
+                });
+                setMessage('Login Succesful!');
+                console.log(response.data);
+                navigate("/homepage")
+            } catch (error) {
+                console.log("Error while fetching data", error)
+            }
+        };
 
     const updateSid = (e) => { setSid(e.target.value) };
     const updatePass = (e) => { setPass(e.target.value) };
 
-    function handleLogin() {
-        if (sid === '' || pass === '') {
-            alert('Please fill in all fields!');
-            return;
-        }
-        else if(isNaN(sid)) {
-            alert('Student Number must be a number!');
-            return;
-        };
-        axios.post('http://localhost:3000/users', {
-            sid: sid,
-            pass: pass
-        }).then(response => {
-            console.log(response);
-            if (response.data === "Success") {
-                alert('Login Successful!');
-                navigate('/homepage')
-            }
-            else{
-                console.log(response.data);
-                alert('Password or Student Number is incorrect!');
-            }
-        })
-            .catch(error => console.log(error));
-    }
 
     return (
         <>
